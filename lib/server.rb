@@ -1,8 +1,5 @@
 require 'sinatra/base'
 require 'data_mapper'
-require './lib/link'
-require './lib/tag'
-require './lib/user'
 require './lib/helpers/application'
 require './lib/data_mapper_setup'
 require 'rack-flash'
@@ -21,6 +18,9 @@ set :session_secret, 'super secret'
   end
 
   post '/links' do
+    # puts '===' * 30
+    # puts params.inspect
+    # {"url"=>"www.makersacademy.com", "title"=>"Makers", "tags"=>"education ruby javascript"}
     url = params["url"]
     title = params["title"]
     tags = params["tags"].split(' ').map do |tag|
@@ -38,8 +38,6 @@ set :session_secret, 'super secret'
 
   get '/users/new' do
     @user = User.new
-    puts "Within New $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    puts @user.object_id
     erb :"users/new"
   end
 
@@ -48,15 +46,11 @@ set :session_secret, 'super secret'
                 :password => params[:password],
                 :password_confirmation => params[:password_confirmation])
 
-    puts "Within Post Users $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    puts @user.object_id
-
-
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash[:notice] = "Sorry, your passwords does not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :"users/new"
     end
   end
