@@ -1,7 +1,6 @@
-require './lib/link'
-require './lib/tag'
-require './lib/user'
-
+require './app/models/link'
+require './app/models/tag'
+require './app/models/user'
 
 # is ENV defined? If yes, use directly; if no, call development.
 env = ENV['RACK_ENV'] || 'development'
