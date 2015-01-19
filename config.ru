@@ -1,4 +1,4 @@
 require 'rubygems'
-require './lib/server.rb'
+require './app/server'
 
-run Bookmark.new
+run Sinatra::Application

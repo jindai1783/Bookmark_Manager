@@ -1,0 +1,19 @@
+<center>
+<h1 style="font-family: Futura">MetaBook</h1>
+
+<section id="new-link">
+  <form style="font-family: Futura" action="/links" method="post">
+    Url: <input type="text" name="url">
+    Title: <input type="text" name="title">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Add link">
+  </form>
+</section>
+
+<ul>
+  <% @links.each do |link| %>
+    <li><a href="<%= link.url %>"><%= link.title %></a></li>
+  <%end%>
+</ul>
+
+</center>
