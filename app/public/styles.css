@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   box-sizing: border-box;
 }
@@ -178,3 +179,12 @@ footer{
 
 
 
+=======
+body {
+  background-color: #F0F8FF;
+}
+
+form {
+  font-size: 12px;
+}
+>>>>>>> 0a835eeb7c03d28018513648f133f36f924896b4
