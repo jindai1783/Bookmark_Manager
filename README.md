@@ -1,1 +1,11 @@
-This project demonstrates how to build a Sinatra application using a relational database.
+# Bookmark Manager
+
+Objectives
+
+* Practice server side development:
+  * Relational database
+  * Sinatra
+  * Ruby
+* Practice front end styling:
+  * CSS
+  * Html
