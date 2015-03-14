@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 source "https://rubygems.org"
 
   gem 'sinatra'
@@ -17,4 +15,3 @@ group :development, :test do
   gem 'rspec'
   gem 'database_cleaner'
 end
->>>>>>> 0a835eeb7c03d28018513648f133f36f924896b4
